@@ -12,7 +12,6 @@
 (when (maybe-require-package 'jedi-core)
   (setq-default jedi:complete-on-dot t)
   (setq-default jedi:use-shortcuts t)
-  (setq-default jedi:use-shortcuts t)
   (after-load 'python
     (add-hook 'python-mode-hook 'jedi:setup)))
 
