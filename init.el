@@ -38,7 +38,6 @@
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
-(require 'init-exec-path) ;; Set up $PATH
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
@@ -56,18 +55,18 @@
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
-(require 'init-osx-keys)
+;; (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
-(require 'init-isearch)
-(require 'init-grep)
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flycheck)
+(require 'init-isearch)
 
 (require 'init-recentf)
 (require 'init-smex)
 (require 'init-helm)
+(require 'init-grep)
 (require 'init-hippie-expand)
 (require 'init-company)
 (require 'init-windows)
@@ -77,8 +76,8 @@
 (require 'init-editing-utils)
 (require 'init-whitespace)
 
-(require 'init-vc)
-(require 'init-darcs)
+;; (require 'init-vc)
+;; (require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
 
@@ -88,36 +87,41 @@
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-(require 'init-erlang)
+;; (require 'init-erlang)
 (require 'init-javascript)
-(require 'init-php)
+;;(require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
 (require 'init-html)
 (require 'init-css)
-(require 'init-haml)
+;; (require 'init-haml)
 (require 'init-http)
 (require 'init-python)
-(require 'init-haskell)
+;; (require 'init-haskell)
 (require 'init-elm)
-(require 'init-purescript)
+;; (require 'init-purescript)
 (require 'init-ruby)
-(require 'init-rails)
-(require 'init-sql)
+;; (require 'init-rails)
+;; (require 'init-sql)
 (require 'init-rust)
 (require 'init-toml)
 (require 'init-yaml)
 (require 'init-docker)
-(require 'init-terraform)
+;; (require 'init-terraform)
 ;;(require 'init-nix)
-(maybe-require-package 'nginx-mode)
+;; (maybe-require-package 'nginx-mode)
 
-(require 'init-paredit)
+;; (require 'init-paredit)
 (require 'init-lisp)
-(require 'init-slime)
-(require 'init-clojure)
-(require 'init-clojure-cider)
-(require 'init-common-lisp)
+;; (require 'init-slime)
+;; (require 'init-clojure)
+;; (require 'init-clojure-cider)
+;; (require 'init-common-lisp)
+
+(require 'init-migemo)
+
+(require 'init-yatex)
+(require 'init-skk)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
@@ -125,7 +129,7 @@
 (require 'init-misc)
 
 (require 'init-folding)
-(require 'init-dash)
+;; (require 'init-dash)
 
 ;;(require 'init-twitter)
 ;; (require 'init-mu)

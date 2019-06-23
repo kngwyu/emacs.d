@@ -4,13 +4,16 @@
 
 (when (maybe-require-package 'rust-mode)
   (when (maybe-require-package 'racer)
-    (add-hook 'rust-mode-hook #'racer-mode))
+    (add-hook 'rust-mode-hook
+              (lambda () (progn
+                      (custom-set-variables '(rust-indent-method-chain t))
+                      (custom-set-variables '(rust-format-on-save t))
+                      (racer-mode)))))
   (when (maybe-require-package 'company)
-    (add-hook 'racer-mode-hook #'company-mode)))
-
-(when (maybe-require-package 'flycheck-rust)
-  (after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+    (add-hook 'racer-mode-hook #'company-mode))
+  (when (maybe-require-package 'flycheck-rust)
+    (after-load 'rust-mode
+      (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
 
 (provide 'init-rust)
 ;;; init-rust.el ends here

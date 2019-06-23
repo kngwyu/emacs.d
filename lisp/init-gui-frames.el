@@ -12,6 +12,8 @@
 
 (global-set-key (kbd "C-z") 'sanityinc/maybe-suspend-frame)
 
+(set-face-attribute 'default nil :family "Camingo Code" :height 120)
+(set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 120))
 
 ;;----------------------------------------------------------------------------
 ;; Suppress GUI features
@@ -41,32 +43,17 @@
   (when (fboundp 'menu-bar-mode)
     (menu-bar-mode -1)))
 
-(let ((no-border '(internal-border-width . 0)))
+(let ((no-border '(internal-border-width . 0))
+      (alpha80 '(alpha . 80)))
   (add-to-list 'default-frame-alist no-border)
-  (add-to-list 'initial-frame-alist no-border))
+  (add-to-list 'default-frame-alist alpha80)
+  (add-to-list 'initial-frame-alist no-border)
+  (add-to-list 'default-frame-alist alpha80))
 
-(defun sanityinc/adjust-opacity (frame incr)
-  "Adjust the background opacity of FRAME by increment INCR."
-  (unless (display-graphic-p frame)
-    (error "Cannot adjust opacity of this frame"))
-  (let* ((oldalpha (or (frame-parameter frame 'alpha) 100))
-         ;; The 'alpha frame param became a pair at some point in
-         ;; emacs 24.x, e.g. (100 100)
-         (oldalpha (if (listp oldalpha) (car oldalpha) oldalpha))
-         (newalpha (+ incr oldalpha)))
-    (when (and (<= frame-alpha-lower-limit newalpha) (>= 100 newalpha))
-      (modify-frame-parameters frame (list (cons 'alpha newalpha))))))
-
-(when (and *is-a-mac* (fboundp 'toggle-frame-fullscreen))
-  ;; Command-Option-f to toggle fullscreen mode
-  ;; Hint: Customize `ns-use-native-fullscreen'
-  (global-set-key (kbd "M-ƒ") 'toggle-frame-fullscreen))
-
-;; TODO: use seethru package instead?
-(global-set-key (kbd "M-C-8") (lambda () (interactive) (sanityinc/adjust-opacity nil -2)))
-(global-set-key (kbd "M-C-9") (lambda () (interactive) (sanityinc/adjust-opacity nil 2)))
-(global-set-key (kbd "M-C-7") (lambda () (interactive) (modify-frame-parameters nil `((alpha . 100)))))
-
+(defun set-alpha (alpha-num)
+  "Set frame parameter alpha by ALPHA-NUM."
+  (interactive "nAlpha: ")
+  (set-frame-parameter nil 'alpha (cons alpha-num '(80))))
 
 (when *is-a-mac*
   (when (maybe-require-package 'ns-auto-titlebar)
