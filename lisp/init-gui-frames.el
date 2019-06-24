@@ -12,9 +12,6 @@
 
 (global-set-key (kbd "C-z") 'sanityinc/maybe-suspend-frame)
 
-(set-face-attribute 'default nil :family "Camingo Code" :height 120)
-(set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 120))
-
 ;;----------------------------------------------------------------------------
 ;; Suppress GUI features
 ;;----------------------------------------------------------------------------
