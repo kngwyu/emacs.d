@@ -63,6 +63,8 @@
 (require 'init-flycheck)
 (require 'init-isearch)
 
+(require 'init-migemo)
+
 (require 'init-recentf)
 (require 'init-smex)
 (require 'init-helm)
@@ -117,8 +119,6 @@
 ;; (require 'init-clojure)
 ;; (require 'init-clojure-cider)
 ;; (require 'init-common-lisp)
-
-(require 'init-migemo)
 
 (require 'init-yatex)
 (require 'init-skk)
