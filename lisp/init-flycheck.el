@@ -11,7 +11,7 @@
   (when (maybe-require-package 'flycheck-color-mode-line)
     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
   (after-load 'flycheck
-    (after-load 'helm
+    (when (maybe-require-package 'flycheck-helm)
       (define-key flycheck-mode-map (kbd "C-c h") 'helm-flycheck))
     (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
     (define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)))
