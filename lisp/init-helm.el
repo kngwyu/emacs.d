@@ -10,9 +10,6 @@
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
   (global-set-key (kbd "C-M-g") 'helm-do-grep-ag)
   (setq-default dired-bind-jump nil)
-  (require 'migemo)
-  (after-load 'helm
-    (helm-migemo-mode t))
   (require 'helm-config))
 
 (provide 'init-helm)
