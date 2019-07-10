@@ -9,8 +9,7 @@
 
 (when (maybe-require-package 'undo-tree)
   (global-undo-tree-mode t)
-  (global-set-key (kbd "C-\\") 'undo-tree-redo)
-  (global-set-key (kbd "C-x o") 'undo-tree-visualize))
+  (global-set-key (kbd "C-\\") 'undo-tree-redo))
 
 (provide 'init-local)
 ;;; init-local.el ends here
