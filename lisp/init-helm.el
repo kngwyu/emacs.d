@@ -10,6 +10,9 @@
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
   (global-set-key (kbd "C-M-g") 'helm-do-grep-ag)
   (setq-default dired-bind-jump nil)
+  (after-load 'helm
+    (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+    (define-key helm-map (kbd "C-z")  'helm-select-action))
   (require 'helm-config))
 
 (provide 'init-helm)
