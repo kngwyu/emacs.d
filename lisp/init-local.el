@@ -7,7 +7,11 @@
 (set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 124))
 (maybe-require-package 'dracula-theme)
 
-(when (maybe-require-package 'undo-tree)
+(unless (site-lisp-library-loadable-p 'undo-tree)
+  (byte-compile-file (site-lisp-library-el-path 'undo-tree)))
+
+(require 'undo-tree)
+(after-load 'undo-tree
   (global-undo-tree-mode t)
   (global-set-key (kbd "C-\\") 'undo-tree-redo))
 
