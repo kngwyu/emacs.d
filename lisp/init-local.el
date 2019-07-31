@@ -15,5 +15,9 @@
   (global-undo-tree-mode t)
   (global-set-key (kbd "C-\\") 'undo-tree-redo))
 
+
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "<hiragana-katakana>") 'toggle-input-method)
+
 (provide 'init-local)
 ;;; init-local.el ends here
