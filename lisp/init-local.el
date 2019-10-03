@@ -6,6 +6,7 @@
   (set-face-attribute 'default nil :family "Camingo Code" :height 118)  )
 (set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 118))
 (maybe-require-package 'dracula-theme)
+(maybe-require-package 'fish-mode)
 
 (unless (site-lisp-library-loadable-p 'undo-tree)
   (byte-compile-file (site-lisp-library-el-path 'undo-tree)))
