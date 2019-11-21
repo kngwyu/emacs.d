@@ -14,7 +14,9 @@
               auto-mode-alist))
 
 (setq-default flycheck-python-flake8-executable "python3")
+
 (maybe-require-package 'cython-mode)
+(setq-default python-indent-def-block-scale 1)
 
 (when (maybe-require-package 'jedi-core)
   (setq-default jedi:complete-on-dot t)
