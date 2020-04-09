@@ -102,6 +102,7 @@
 ;; (require 'init-ruby)
 ;; (require 'init-rails)
 ;; (require 'init-sql)
+(require 'init-c)
 (require 'init-rust)
 (require 'init-toml)
 (require 'init-yaml)
