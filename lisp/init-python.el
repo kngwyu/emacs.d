@@ -13,7 +13,10 @@
                 ("SConscript\\'" . python-mode))
               auto-mode-alist))
 
+
 (setq-default flycheck-python-flake8-executable "python3")
+(setq python-shell-interpreter "python3")
+(require-package 'pip-requirements)
 
 (maybe-require-package 'cython-mode)
 (setq-default python-indent-def-block-scale 1)
@@ -25,6 +28,9 @@
         (list "virtualenv" "--python" "python3" "--system-site-packages"))
   (after-load 'python
     (add-hook 'python-mode-hook 'jedi:setup)))
+
+(when (maybe-require-package 'toml-mode)
+  (add-to-list 'auto-mode-alist '("poetry\\.lock\\'" . toml-mode)))
 
 (provide 'init-python)
 ;;; init-python.el ends here
