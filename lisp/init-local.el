@@ -3,8 +3,8 @@
 ;;; Code:
 
 (when (member "CamingoCode" (font-family-list))
-  (set-face-attribute 'default nil :family "Camingo Code" :height 118)  )
-(set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 118))
+  (set-face-attribute 'default nil :family "Camingo Code" :height 120))
+(set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 120))
 (maybe-require-package 'dracula-theme)
 (maybe-require-package 'fish-mode)
 
