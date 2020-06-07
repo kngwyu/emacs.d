@@ -334,7 +334,7 @@ With arg N, insert N newlines."
   (add-hook 'after-init-hook 'which-key-mode)
   (setq-default which-key-idle-delay 1.5)
   (after-load 'which-key
-  (diminish 'which-key-mode)))
+    (diminish 'which-key-mode)))
 
 
 (defun sanityinc/disable-features-during-macro-call (orig &rest args)
@@ -347,6 +347,8 @@ ORIG is the advised function, which is called with its ARGS."
 
 (advice-add 'kmacro-call-macro :around 'sanityinc/disable-features-during-macro-call)
 
+(when (maybe-require-package 'editorconfig)
+  (editorconfig-mode 1))
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here

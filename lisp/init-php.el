@@ -9,5 +9,7 @@
     (after-load 'company
       (add-to-list 'company-backends 'company-ac-php-backend))))
 
+(maybe-require-package 'neon-mode)
+
 (provide 'init-php)
 ;;; init-php.el ends here
