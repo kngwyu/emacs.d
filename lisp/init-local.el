@@ -5,8 +5,9 @@
 (when (member "CamingoCode" (font-family-list))
   (set-face-attribute 'default nil :family "Camingo Code" :height 120))
 (set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 120))
-(maybe-require-package 'dracula-theme)
+(maybe-require-package 'doom-themes)
 (maybe-require-package 'fish-mode)
+(setq history-delete-duplicates t)
 
 (unless (site-lisp-library-loadable-p 'undo-tree)
   (byte-compile-file (site-lisp-library-el-path 'undo-tree)))
