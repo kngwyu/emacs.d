@@ -2,9 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (member "CamingoCode" (font-family-list))
-  (set-face-attribute 'default nil :family "Camingo Code" :height 120))
-(set-fontset-font t 'japanese-jisx0208 (font-spec :family "IPA Gothic" :height 120))
+(when (member "HackGen" (font-family-list))
+  (set-face-attribute 'default nil :family "HackGen35" :height 120))
 (maybe-require-package 'doom-themes)
 (maybe-require-package 'fish-mode)
 (setq history-delete-duplicates t)
