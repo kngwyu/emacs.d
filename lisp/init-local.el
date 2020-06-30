@@ -4,9 +4,18 @@
 
 (when (member "HackGen" (font-family-list))
   (set-face-attribute 'default nil :family "HackGen35" :height 120))
-(maybe-require-package 'doom-themes)
+(when (member "Source Code Pro" (font-family-list))
+  (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Source Code Pro" :height 120)))
 (maybe-require-package 'fish-mode)
+(when (maybe-require-package 'powerline)
+  (powerline-default-theme))
 (setq history-delete-duplicates t)
+
+(unless (site-lisp-library-loadable-p 'doom-themes)
+  (byte-compile-file (site-lisp-library-el-path 'doom-themes)))
+(require 'doom-themes)
+
+;; (maybe-require-package 'doom-themes)
 
 (unless (site-lisp-library-loadable-p 'undo-tree)
   (byte-compile-file (site-lisp-library-el-path 'undo-tree)))
