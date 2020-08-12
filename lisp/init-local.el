@@ -14,6 +14,7 @@
 (unless (site-lisp-library-loadable-p 'doom-themes)
   (byte-compile-file (site-lisp-library-el-path 'doom-themes)))
 (require 'doom-themes)
+(load-theme 'doom-dracula t)
 
 ;; (maybe-require-package 'doom-themes)
 
