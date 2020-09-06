@@ -7,24 +7,15 @@
 (when (member "Source Code Pro" (font-family-list))
   (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Source Code Pro" :height 120)))
 (maybe-require-package 'fish-mode)
-(when (maybe-require-package 'powerline)
-  (powerline-default-theme))
 (setq history-delete-duplicates t)
 
-(unless (site-lisp-library-loadable-p 'doom-themes)
-  (byte-compile-file (site-lisp-library-el-path 'doom-themes)))
-(require 'doom-themes)
-(load-theme 'doom-dracula t)
+(when (maybe-require-package 'doom-themes)
+  (load-theme 'doom-dracula t))
 
-;; (maybe-require-package 'doom-themes)
-
-(unless (site-lisp-library-loadable-p 'undo-tree)
-  (byte-compile-file (site-lisp-library-el-path 'undo-tree)))
-
-(require 'undo-tree)
-(after-load 'undo-tree
-  (global-undo-tree-mode t)
-  (global-set-key (kbd "C-\\") 'undo-tree-redo))
+(when (maybe-require-package 'undo-tree)
+  (with-eval-after-load 'undo-tree
+    (global-undo-tree-mode t)
+    (global-set-key (kbd "C-\\") 'undo-tree-redo)))
 
 (when (maybe-require-package 'treemacs)
   (with-eval-after-load 'winum
