@@ -13,9 +13,10 @@
   (load-theme 'doom-dracula t))
 
 (when (maybe-require-package 'undo-tree)
-  (with-eval-after-load 'undo-tree
-    (global-undo-tree-mode t)
-    (global-set-key (kbd "C-\\") 'undo-tree-redo)))
+  (global-undo-tree-mode t)
+  (global-set-key (kbd "C-\\") 'undo-tree-redo)
+  (global-set-key (kbd "C-/") 'undo-tree-undo)
+  (global-set-key (kbd "C-x u") 'undo-tree-visualize))
 
 (when (maybe-require-package 'treemacs)
   (with-eval-after-load 'winum
@@ -31,6 +32,9 @@
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "<hiragana-katakana>") 'toggle-input-method)
+
+(when (maybe-require-package 'powerline)
+  (powerline-center-theme))
 
 (provide 'init-local)
 ;;; init-local.el ends here
