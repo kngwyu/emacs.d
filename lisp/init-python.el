@@ -26,8 +26,13 @@
   (setq-default jedi:use-shortcuts t)
   (setq jedi:environment-virtualenv
         (list "virtualenv" "--python" "python3" "--system-site-packages"))
-  (after-load 'python
+  (with-eval-after-load 'python
     (add-hook 'python-mode-hook 'jedi:setup)))
+
+(when (boundp 'display-fill-column-indicator)
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (setq-local display-fill-column-indicator-column 89))))
 
 (when (maybe-require-package 'toml-mode)
   (add-to-list 'auto-mode-alist '("poetry\\.lock\\'" . toml-mode)))

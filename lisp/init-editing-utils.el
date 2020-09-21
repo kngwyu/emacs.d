@@ -36,7 +36,9 @@
 
 (add-hook 'after-init-hook 'global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
-      auto-revert-verbose nil)
+      auto-revert-verbose nil
+      auto-revert-interval 0.3
+      auto-revert-check-vc-info t)
 (with-eval-after-load 'autorevert
   (diminish 'auto-revert-mode))
 
