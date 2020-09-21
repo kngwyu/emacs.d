@@ -12,5 +12,8 @@
   (setq-default tex-command "latexmk -gg -pdf")
   (setq-default dvi2-command "evince"))
 
+(when (boundp 'display-fill-column-indicator)
+  (add-hook 'yatex-mode-hook 'display-fill-column-indicator-mode))
+
 (provide 'init-yatex)
 ;;; init-yatex.el ends here
