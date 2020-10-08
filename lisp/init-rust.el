@@ -13,12 +13,13 @@
 
 (when (maybe-require-package 'flycheck-rust)
   (with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))  )
 
 (when (boundp 'display-fill-column-indicator)
-  (add-hook 'rust-mode-hook
-            (lambda ()
-              (setq-local display-fill-column-indicator-column 100))))
+  (with-eval-after-load 'rust-mode
+    (add-hook 'rust-mode-hook
+              (lambda ()
+                (setq-local display-fill-column-indicator-column 100)))))
 
 (provide 'init-rust)
 ;;; init-rust.el ends here
