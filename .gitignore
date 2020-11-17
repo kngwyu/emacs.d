@@ -54,3 +54,4 @@ site-lisp/package/
 /.python-environments
 /.lsp-session-v1
 /smex-items
+/eln-cache/
