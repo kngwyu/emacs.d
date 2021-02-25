@@ -21,7 +21,7 @@
         (progn
           (define-key skk-j-mode-map "\\" 'self-insert-command)
           (define-key skk-j-mode-map "$" 'YaTeX-insert-dollar))))
-  (after-load 'ddskk
+  (with-eval-after-load 'ddskk
     (add-hook 'skk-mode-hook 'my-skk-mode-hook)))
 
 (provide 'init-skk)

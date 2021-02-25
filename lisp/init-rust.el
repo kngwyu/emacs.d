@@ -3,7 +3,7 @@
 ;;; Code:
 
 (when (maybe-require-package 'rust-mode)
-  (after-load 'rust-mode
+  (with-eval-after-load 'rust-mode
     (custom-set-variables '(rust-indent-method-chain t))
     (custom-set-variables '(rust-format-on-save t)))
   (when (maybe-require-package 'racer)

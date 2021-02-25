@@ -10,7 +10,8 @@
   (setq-default YaTeX-latex-message-code 'utf-8)
   (setq-default YaTeX-use-LaTeX2e t)
   (setq-default tex-command "latexmk -gg -pdf")
-  (setq-default dvi2-command "evince"))
+  (setq-default dvi2-command "evince")
+  (defvar YaTeX-environment-indent 2))
 
 (when (boundp 'display-fill-column-indicator)
   (add-hook 'yatex-mode-hook 'display-fill-column-indicator-mode))

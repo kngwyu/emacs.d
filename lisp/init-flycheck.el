@@ -10,7 +10,7 @@
     (add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode))
   (when (maybe-require-package 'flycheck-color-mode-line)
     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-  (after-load 'flycheck
+  (with-eval-after-load 'flycheck
     (when (maybe-require-package 'helm-flycheck)
       (define-key flycheck-mode-map (kbd "C-c h") 'helm-flycheck))
     (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)

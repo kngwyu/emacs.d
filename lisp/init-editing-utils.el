@@ -295,7 +295,7 @@ With arg N, insert N newlines."
 (when (maybe-require-package 'which-key)
   (add-hook 'after-init-hook 'which-key-mode)
   (setq-default which-key-idle-delay 1.5)
-  (after-load 'which-key
+  (with-eval-after-load 'which-key
     (diminish 'which-key-mode)))
 
 (defun sanityinc/disable-features-during-macro-call (orig &rest args)
