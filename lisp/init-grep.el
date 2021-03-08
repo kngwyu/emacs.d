@@ -13,15 +13,5 @@
   (dolist (key (list (kbd "C-c C-q") (kbd "w")))
     (define-key grep-mode-map key 'wgrep-change-to-wgrep-mode)))
 
-(when (and (executable-find "rg")
-           (maybe-require-package 'helm-ag))
-  (global-set-key (kbd "C-M-g") 'helm-do-ag)
-  (global-set-key (kbd "C-M-k") 'backward-kill-sexp)
-  (global-set-key (kbd "M-?") 'rg-project)
-  (setq-default helm-ag-base-command "rg --vimgrep --no-heading"))
-
-(when (maybe-require-package 'helm-swoop)
-  (global-set-key (kbd "M-s o") 'helm-swoop))
-
 (provide 'init-grep)
 ;;; init-grep.el ends here
