@@ -8,7 +8,6 @@
   (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-  (global-set-key (kbd "C-M-g") 'helm-do-grep-ag)
   (setq-default dired-bind-jump nil)
   (with-eval-after-load 'helm
     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
