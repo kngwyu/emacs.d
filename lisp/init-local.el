@@ -36,5 +36,8 @@
 (when (maybe-require-package 'powerline)
   (powerline-center-theme))
 
+(when (maybe-require-package 'atomic-chrome)
+  (atomic-chrome-start-server))
+
 (provide 'init-local)
 ;;; init-local.el ends here
