@@ -31,6 +31,7 @@
 
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-=") 'set-mark-command)
 (global-set-key (kbd "<hiragana-katakana>") 'toggle-input-method)
 
 (when (maybe-require-package 'powerline)
