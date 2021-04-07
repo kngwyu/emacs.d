@@ -8,9 +8,11 @@
   (fullframe docker-volumes tablist-quit)
   (fullframe docker-networks tablist-quit)
   (fullframe docker-containers tablist-quit))
-(maybe-require-package 'dockerfile-mode)
+
 (maybe-require-package 'docker-compose-mode)
 
+(when (maybe-require-package 'dockerfile-mode)
+  (add-to-list 'auto-mode-alist '("\\.def\\'" . dockerfile-mode)))
 
 (provide 'init-docker)
 ;;; init-docker.el ends here
