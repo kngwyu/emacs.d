@@ -31,7 +31,7 @@
 
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-=") 'set-mark-command)
+(global-set-key (kbd "C-'") 'set-mark-command)
 (global-set-key (kbd "<hiragana-katakana>") 'toggle-input-method)
 
 (when (maybe-require-package 'powerline)
@@ -39,6 +39,10 @@
 
 (when (maybe-require-package 'atomic-chrome)
   (atomic-chrome-start-server))
+
+(when (and (executable-find "keychain")
+           (maybe-require-package 'keychain-environment))
+  (keychain-refresh-environment))
 
 (provide 'init-local)
 ;;; init-local.el ends here
