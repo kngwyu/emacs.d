@@ -2,21 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (maybe-require-package 'rust-mode)
-  (with-eval-after-load 'rust-mode
-    (custom-set-variables '(rust-indent-method-chain t))
-    (custom-set-variables '(rust-format-on-save t)))
-  (when (maybe-require-package 'racer)
-    (add-hook 'rust-mode-hook #'racer-mode))
-  (when (maybe-require-package 'company)
-    (add-hook 'racer-mode-hook #'company-mode)))
-
-(when (maybe-require-package 'flycheck-rust)
-  (with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))  )
+(when (maybe-require-package 'rustic)
+  (setq lsp-rust-analyzer-server-command '("/usr/bin/rust-analyzer"))
+  (setq rustic-lsp-client 'eglot)
+  (with-eval-after-load 'rustic-mode
+    (custom-set-variables '(rustic-format-on-save t)))
+  (when (maybe-require-package 'eglot)
+    (with-eval-after-load 'rustic-mode
+      (custom-set-variables '(rustic-lsp-client 'eglot)))))
 
 (when (boundp 'display-fill-column-indicator)
-  (with-eval-after-load 'rust-mode
+  (with-eval-after-load 'rustic-mode
     (add-hook 'rust-mode-hook
               (lambda ()
                 (setq-local display-fill-column-indicator-column 100)))))
