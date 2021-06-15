@@ -44,5 +44,15 @@
            (maybe-require-package 'keychain-environment))
   (keychain-refresh-environment))
 
+
+(let ((alpha80 '(alpha . 80)))
+  (add-to-list 'default-frame-alist alpha80)
+  (add-to-list 'default-frame-alist alpha80))
+
+(defun set-alpha (n-alpha)
+  "Set frame parameter alpha by N-ALPHA."
+  (interactive "N-ALPHA?: ")
+  (set-frame-parameter nil 'alpha (cons n-alpha '(80))))
+
 (provide 'init-local)
 ;;; init-local.el ends here
