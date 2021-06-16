@@ -29,7 +29,6 @@
   (global-set-key (kbd "C-x t C-t") 'treemacs-find-file)
   (global-set-key (kbd "C-x t M-t") 'treemacs-find-tag))
 
-
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-'") 'set-mark-command)
 (global-set-key (kbd "<hiragana-katakana>") 'toggle-input-method)
@@ -39,6 +38,18 @@
 
 (when (maybe-require-package 'atomic-chrome)
   (atomic-chrome-start-server))
+
+;; My consult settings
+(when (package-installed-p 'consult)
+  (global-set-key (kbd "C-x b") 'consult-buffer)
+  (global-set-key (kbd "M-s o") 'consult-line)
+  (when (package-installed-p 'affe)
+    (global-set-key (kbd "C-M-g") 'affe-grep)
+    (global-set-key (kbd "C-x f") 'affe-find)
+    (setq affe-regexp-function #'orderless-pattern-compiler
+          affe-highlight-function #'orderless--highlight)
+    (when (executable-find "fd")
+      (setq affe-find-command "fd --color=never --full-path"))))
 
 (when (and (executable-find "keychain")
            (maybe-require-package 'keychain-environment))

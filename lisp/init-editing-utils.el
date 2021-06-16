@@ -129,7 +129,7 @@
 
 (require-package 'browse-kill-ring)
 (setq browse-kill-ring-separator "\f")
-(global-set-key (kbd "M-Y") 'browse-kill-ring)
+(global-set-key (kbd "M-y") 'browse-kill-ring)
 (with-eval-after-load 'browse-kill-ring
   (define-key browse-kill-ring-mode-map (kbd "C-g") 'browse-kill-ring-quit)
   (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)

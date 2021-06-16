@@ -117,7 +117,6 @@
 ;; (require 'init-clojure-cider)
 ;; (require 'init-common-lisp)
 
-(require 'init-helm)
 (require 'init-migemo)
 (require 'init-yatex)
 (require 'init-skk)
