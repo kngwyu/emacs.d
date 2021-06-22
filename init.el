@@ -117,10 +117,6 @@
 ;; (require 'init-clojure-cider)
 ;; (require 'init-common-lisp)
 
-(require 'init-migemo)
-(require 'init-yatex)
-(require 'init-skk)
-
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
@@ -170,6 +166,9 @@
 
 ;; Allow users to provide an optional "init-local" containing personal settings
 (require 'init-local nil t)
+(require 'init-migemo)
+(require 'init-yatex)
+(require 'init-skk)
 
 (provide 'init)
 
