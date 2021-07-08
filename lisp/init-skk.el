@@ -3,8 +3,8 @@
 ;;; Code:
 
 (when (maybe-require-package 'ddskk)
-  (global-set-key (kbd "C-x j") 'auto-fill-mode)
-  (global-set-key (kbd "C-x C-j") 'skk-mode)
+  (global-set-key (kbd "C-x a f") 'auto-fill-mode)
+  (global-set-key (kbd "C-x j") 'skk-mode)
   (setq-default skk-show-candidates-nth-henkan-char 3)
   (setq-default skk-henkan-number-to-display-candidates 8)
   (setq-default skk-auto-insert-paren t)

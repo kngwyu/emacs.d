@@ -12,8 +12,6 @@
   (setq-default migemo-regex-dictionary nil)
   (setq-default migemo-coding-system 'utf-8-unix)
   (require 'migemo)
-  (with-eval-after-load 'helm
-    (helm-migemo-mode t))
   (migemo-init))
 
 (provide 'init-migemo)
